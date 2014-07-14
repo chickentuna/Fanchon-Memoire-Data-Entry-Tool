@@ -1,4 +1,3 @@
-(function() {
 	var app = angular.module('app', []);
 
 	var reponses = [
@@ -23,8 +22,8 @@
 		this.lycees = ["", "Chamalières"];
 		this.filieres = ["", "Esthétique"];
 		this.reponses = reponses;
-
-
 	});
 
-})();
+function submit() {
+		console.log("Submit pressed");
+	};

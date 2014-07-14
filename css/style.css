@@ -1,0 +1,11 @@
+.general{
+	border-style: double;
+    border-width: medium;
+    padding: 6px;
+}
+
+ol>li {
+	border-style: double;
+    border-width: medium;
+    padding: 6px;
+}
