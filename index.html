@@ -10,7 +10,8 @@
       <input id="age" type="number"></input>
       <br>
       <label for="sexe">Sexe:</label>
-      <input id="sexe" type="number"></input>
+      <input type="radio" name="sexe" value="homme"> Homme 
+      <input type="radio" name="sexe" value="femme"> Femme <br>
       <br>
       <label for="lycee">Lycée:</label>
       <select id="lycee">
@@ -28,6 +29,16 @@
         </option> 
       </select>
       <br>
+      <ol start="5">
+        <li ng-repeat="(key,value) in ctrl.reponses">
+          <label for="Q{{key}}">Question {{key+5}}</label>
+          <div ng-repeat="(subkey,subvalue) in value">
+            <input type="checkbox" id="Q{{key}}.{{subkey}}">{{subvalue}}</input>
+          </div>
+          <br>
+        </li>
+      </ol>
+
     </form>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.11/angular.min.js"></script>
