@@ -19,8 +19,8 @@
     ];
 
 	app.controller('MainController', function() {
-		this.lycees = ["", "Chamalières"];
-		this.filieres = ["", "Esthétique"];
+		this.lycees = ["", "Chamalières","Marie Curie","Ambroise Brugière","Lafayette","Camille Claudel"];
+		this.filieres = ["", "Esthétique","Cuisine", "Service", "Agent de Sécurité", "Electro-technique", "Aéronautique"];
 		this.reponses = reponses;
 	});
 
