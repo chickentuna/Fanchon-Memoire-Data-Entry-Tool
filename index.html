@@ -11,8 +11,8 @@
       <input id="age" type="number"></input>
       <br>
       <label for="sexe">Sexe:</label>
-      <input type="radio" name="sexe" value="homme"> Homme 
-      <input type="radio" name="sexe" value="femme"> Femme <br>
+      <input type="radio" name="sexe" id="sexeH" value="homme"> Homme 
+      <input type="radio" name="sexe" id="sexeF" value="femme"> Femme <br>
       <br>
       <label for="lycee">Lycée:</label>
       <select id="lycee">
@@ -21,9 +21,9 @@
         </option>
       </select>
       <br>
-      <input type="checkbox" id="typeLycee">Lycée professionel</input>
-      <br>
-      <label for="filiere">Filière:</label>
+      <input type="checkbox" id="typeLycee">Lycée professionel. </input>
+      Si oui,  
+      <label for="filiere">filière:</label>
       <select id="filiere">
        <option ng-repeat="filiere in ctrl.filieres" value="{{$index}}">
         {{filiere}}
@@ -129,5 +129,6 @@
 <input type="button" value="Submit" onclick="submit()"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.11/angular.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </body>
 </html>

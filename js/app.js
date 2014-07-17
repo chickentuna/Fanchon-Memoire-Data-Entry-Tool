@@ -25,5 +25,50 @@
 	});
 
 function submit() {
-		console.log("Submit pressed");
-	};
+	console.log("Submit pressed");
+	var form = $(document.forms[0]);
+	console.log(form);
+	var age = form.find("#age")[0].value || null;
+	var sex = form.find("#sexeH")[0].checked ? "H" : (form.find("#sexeF")[0].checked ? "F" : null);
+	var lycee = form.find('#lycee')[0].children[(form.find('#lycee')[0].value)].label || null;
+	var filiere = {};
+	
+	filiere.type = form.find('#typeLycee')[0].checked ? 'Professionel' : 'Général ou technologique';
+	filiere.nom = form.find('#filiere')[0].children[(form.find('#filiere')[0].value)].label || null;
+	
+	var questions = [];
+
+	/*
+	'{
+		"age": 18,
+		"sex": "F",
+		"lycee": "Chamalière",
+
+		"filiere": {
+			"type": "Général ou technologique",
+			"nom": null,
+		},
+
+		"questions": [
+			{
+				"id": 5,
+				"reponse": true,
+				"raison": [0, 1],
+				"accompagne": true,
+				"seule": false
+			},
+			{
+				"id": 6,
+				"reponse": ["Pilule"]
+			},
+			{
+				"id": 7,
+				"reponse": ["Jamais"]
+			},
+			{
+				"id": 8,
+				"reponse": ["On prend qu\'une fois" ]
+			}
+		]
+	}'*/
+};
