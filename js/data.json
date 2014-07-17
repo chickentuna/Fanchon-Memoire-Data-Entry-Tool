@@ -1,0 +1,35 @@
+/*[
+	{
+		"id": 1,
+		"age": 18,
+		"sex": "F",
+		"lycee": "Chamalière",
+
+		"filiere": {
+			"type": "Général ou technologique",
+			"nom": null,
+		},
+
+		"questions": [
+			{
+				"id": 5,
+				"reponse": true,
+				"raison": [0, 1],
+				"accompagne": true,
+				"seule": false
+			},
+			{
+				"id": 6,
+				"reponse": ["Pilule"]
+			},
+			{
+				"id": 7,
+				"reponse": ["Jamais"]
+			},
+			{
+				"id": 8,
+				"reponse": ["On prend qu'une fois" ]
+			}
+		]
+	}
+]*/
