@@ -38,6 +38,17 @@ function submit() {
 	
 	var questions = [];
 
+	var Qs = form.find("[id^='Q']");
+
+	for (var i = 0, l = Qs.length; i < l; ++i) {
+		var Q = Qs[i];
+		var num = Q.id.split('.')[0].slice(1);
+		var sub = Q.id.split('.')[1];
+		var Qjson = '{"id":'+num+', "reponse": ['++']}'	
+		
+
+	}
+
 	/*
 	'{
 		"age": 18,
