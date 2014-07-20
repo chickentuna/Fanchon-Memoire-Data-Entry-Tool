@@ -36,18 +36,31 @@ function submit() {
 	filiere.type = form.find('#typeLycee')[0].checked ? 'Professionel' : 'Général ou technologique';
 	filiere.nom = form.find('#filiere')[0].children[(form.find('#filiere')[0].value)].label || null;
 	
+	var consult = form.find('#consult')[0].checked;
+	var consult_seul = form.find('#consult_seul')[0].checked;
+	var consult_accompagne = form.find('#consult_accompagne')[0].checked;
+
 	var questions = [];
 
 	var Qs = form.find("[id^='Q']");
+
+	var reponses = {};
+
+	for (var i = 5, l = 21; i < l; ++i) {
+		reponses[i] = [];
+	}
 
 	for (var i = 0, l = Qs.length; i < l; ++i) {
 		var Q = Qs[i];
 		var num = Q.id.split('.')[0].slice(1);
 		var sub = Q.id.split('.')[1];
-		var Qjson = '{"id":'+num+', "reponse": ['++']}'	
-		
-
+		if (Q.checked) { // Autre?
+			reponses[num].push(Q.nextSibling.data);
+		}
 	}
+
+
+
 
 	/*
 	'{
