@@ -39,60 +39,44 @@ function submit() {
 	var consult = form.find('#consult')[0].checked;
 	var consult_seul = form.find('#consult_seul')[0].checked;
 	var consult_accompagne = form.find('#consult_accompagne')[0].checked;
-
+	var combien = null;
 	var questions = [];
 
 	var Qs = form.find("[id^='Q']");
 
-	var reponses = {};
+	var data = {};
 
 	for (var i = 5, l = 21; i < l; ++i) {
-		reponses[i] = [];
+		data[i] = [];
 	}
 
 	for (var i = 0, l = Qs.length; i < l; ++i) {
 		var Q = Qs[i];
 		var num = Q.id.split('.')[0].slice(1);
 		var sub = Q.id.split('.')[1];
-		if (Q.checked) { // Autre?
-			reponses[num].push(Q.nextSibling.data);
+		if (sub == 'autre') {
+			var v = Q.value;
+			if (v)
+				data[num].push(v);
+		} else if (num == 18 && sub == 'combien') {
+			combien = Q.value || null;
+		} else if (Q.checked) {
+			data[num].push(Q.nextSibling.data.trim());
 		}
 	}
 
+	data[5].consulte = consult;
+	data[5].consulte_seule = consult_seul;
+	data[5].consulte_accompagne = consult_accompagne;
+	var r18 = data[18];
+	data[18] = {};
+	data[18].combien = combien;
+	data[18].intervention = (r18.indexOf("Interventions sur la pilule au cours du parcours scolaire") != -1)
+	data[18].neSaisPas = (r18.indexOf("Je ne sais pas") != -1)
+
+	var json = 	'{\n		"age": '+age+',\n		"sex": "'+sex+'",\n		"lycee": "'+lycee+'",\n\n		"filiere": {\n			"type": "'+filiere.type+'",\n			"nom": '+filiere.nom+',\n		},\n\n		"questions": '+JSON.stringify(data)+'\n	}';
+	//console.log(json);
 
 
 
-	/*
-	'{
-		"age": 18,
-		"sex": "F",
-		"lycee": "Chamalière",
-
-		"filiere": {
-			"type": "Général ou technologique",
-			"nom": null,
-		},
-
-		"questions": [
-			{
-				"id": 5,
-				"reponse": true,
-				"raison": [0, 1],
-				"accompagne": true,
-				"seule": false
-			},
-			{
-				"id": 6,
-				"reponse": ["Pilule"]
-			},
-			{
-				"id": 7,
-				"reponse": ["Jamais"]
-			},
-			{
-				"id": 8,
-				"reponse": ["On prend qu\'une fois" ]
-			}
-		]
-	}'*/
 };
