@@ -25,9 +25,9 @@
 	});
 
 function submit() {
-	console.log("Submit pressed");
+	//console.log("Submit pressed");
 	var form = $(document.forms[0]);
-	console.log(form);
+	//console.log(form);
 	var age = form.find("#age")[0].value || null;
 	var sex = form.find("#sexeH")[0].checked ? "H" : (form.find("#sexeF")[0].checked ? "F" : null);
 	var lycee = form.find('#lycee')[0].children[(form.find('#lycee')[0].value)].label || null;
@@ -74,9 +74,13 @@ function submit() {
 	data[18].intervention = (r18.indexOf("Interventions sur la pilule au cours du parcours scolaire") != -1)
 	data[18].neSaisPas = (r18.indexOf("Je ne sais pas") != -1)
 
-	var json = 	'{\n		"age": '+age+',\n		"sex": "'+sex+'",\n		"lycee": "'+lycee+'",\n\n		"filiere": {\n			"type": "'+filiere.type+'",\n			"nom": '+filiere.nom+',\n		},\n\n		"questions": '+JSON.stringify(data)+'\n	}';
-	//console.log(json);
+	var json = 	'{\n	"age": '+age+',\n	"sex": "'+sex+'",\n	"lycee": "'+lycee+'",\n\n	"filiere": {\n		"type": "'+filiere.type+'",\n		"nom": '+filiere.nom+',\n	},\n\n	"questions": '+JSON.stringify(data)+'\n}';
 
-
-
+	function download(filename, text) {
+	    var pom = document.createElement('a');
+	    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+	    pom.setAttribute('download', filename);
+	    pom.click();
+	}
+	download('data.txt', json);
 };
