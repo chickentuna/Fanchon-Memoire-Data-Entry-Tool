@@ -41,9 +41,7 @@ function submit() {
 	var consult_accompagne = form.find('#consult_accompagne')[0].checked;
 	var combien = null;
 	var questions = [];
-
 	var Qs = form.find("[id^='Q']");
-
 	var data = {};
 
 	for (var i = 5, l = 21; i < l; ++i) {
